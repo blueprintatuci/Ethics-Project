@@ -1,11 +1,13 @@
 import React, {Component} from "react";
 import bpData from "./bpData";
+import './Homepage.css';
 
 export default class Homepage extends React.Component {
     render() {
         // const bodyContentComponents = 
         return (
             <div className="Homepage-content">
+                <NavBar/>
                 <Context/>
                 <BodyContent/>
             </div>
@@ -13,19 +15,25 @@ export default class Homepage extends React.Component {
     }
 }
 
+class NavBar extends Component {
+    render() {
+        return (
+            <ul className = "nav">
+                <li><a class="active" href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+            </ul>
+        )
+    }
+}
+
 class Context extends Component {
     render() {
         return (
-            <div className="context-content">
-                <h1>
-                    This is a CTA heading.
-                </h1>
-                <p>
-                    This section uses a container element to ensure the content looks right on every device. It’s centered with the class "Centered Container.”
-                </p>
-                <button>
-                    Button Text
-                </button>
+            <div className="banner-container">
+                <div className = "banner-content">
+                    <h1>Post Picker</h1>
+                    <a href="#" id="visit">Visit</a>
+                </div>
             </div>
         )
     }
@@ -49,15 +57,16 @@ class BodyComponent extends Component {
 
     render() {
         return (
-            <div className="body-component">
-                <div>
+            <div className="article-list">
+                <div className="title">
                     {this.props.title}
                 </div>
-                <img src={this.props.img}/>
-                <div>
+                <img className = "article-img" src={this.props.img}/>
+                <div className = "description">
                     {this.props.context}
                 </div>
-                <button style={{marginTop: 10}}>Button Text</button>
+                <button className = "visit-article" >Visit Article</button>
+                <button className = "add" style={{marginTop: 10}}>Add To Blog</button>
             </div>
         )
     }
