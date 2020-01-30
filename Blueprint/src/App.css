@@ -1,0 +1,38 @@
+body {
+    margin: 0;
+}
+
+button {
+    height: 40px;
+    width: 100px;
+    background: rgb(65, 141, 212);
+}
+
+button:hover {
+    background: white;
+}
+
+img {
+    width: 600px;
+}
+
+.Homepage-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 50px;
+    padding-bottom: 100px;
+}
+
+.context-content {
+    text-align: center;
+}
+
+.body-content {
+    
+}   
+
+.body-component {
+    width: 600px;
+    padding-top: 150px;
+}
