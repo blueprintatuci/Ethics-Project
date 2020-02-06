@@ -18,9 +18,8 @@ class ZeroWasteHomeSpider(scrapy.Spider):
             yield {
                 'url' : art.css("a.entire-meta-link::attr(href)").get(),
                 'title' : art.css("div.post-header a::text").get().strip(),
-                'authortags' : art.css("div.text a::text").get(),
+                'author' : art.css("div.text a::text").get(),
                 'image_url' : art.css('div.post-featured-img-wrap span.post-featured-img::attr(style)').re(r'http.*jpg')[0],
                 'content' : art.css("div.excerpt::text").get(),
                 'publish_date' : art.css("div.text span::text").get(),
             }
-                    
