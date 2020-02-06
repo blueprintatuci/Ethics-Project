@@ -1,0 +1,181 @@
+body, html {
+    height: 100%;
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+nav {
+    position: fixed;
+    top: 0;
+    width: 100%;
+}
+
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #333;
+    position: fixed;
+    top: 0;
+    width: 100%;
+  }
+  
+  li {
+    float: right;
+  }
+  
+  li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+  }
+  
+  li a:hover:not(.active) {
+    background-color: #111;
+  }
+  
+  .active {
+    background-color: #4CAF50;
+  }
+
+.banner-container {
+    /* background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("../src/picSrc/tomato.jpg");
+    height: 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: auto,cover;
+    position: relative; */
+    /* height: auto;
+    padding: 100px 100px; */
+    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("../src/picSrc/tomato.jpg");
+    background-size: 100% 100%;
+    background-position: center;
+    background-attachment: fixed;
+    width: 100vw;
+    height: 350px;
+}
+
+a#visit{
+    display: block;
+    text-align: center;
+    width: 150px;
+    margin: 0px auto;
+    padding: 20px;
+    color: white;
+    text-transform: uppercase;
+    font-family: Arial;
+    border: 1px solid #fff;
+    text-decoration: none;
+    border-radius: 10px;
+
+}
+.banner-content button:hover{
+    background-color: #555;
+    color: white;
+    
+}
+
+h1 {
+    color: white;
+    font-family: Arial;
+    text-align: center;
+    font-size: 100px;
+}
+
+a#visit {
+    display: block;
+    text-align: center;
+    width: 150px;
+    margin: 0px auto;
+    padding: 20px;
+    color: white;
+    font-family: Arial;
+    border: 1px solid #fff;
+    text-decoration: none;
+    border-radius: 100px;
+}
+  
+a#visit:hover:not(.active) {
+    background-color:green;
+  } 
+  
+a#visit:active {
+    background-color: #3e8e41;
+    box-shadow: 0 5px #666;
+    transform: translateY(4px);
+  }
+
+  .title {
+    display: block;
+    font-size: .83em;
+    margin-top: 1.67em;
+    margin-bottom: 1.67em;
+    margin-left: 0;
+    margin-right: 0;
+    font-weight: bold;
+    font-size: 20px;
+    text-align: center;
+  }
+
+  .article-img{
+      width: 600px;
+      height: 400px;
+  }
+
+  .description{
+    display: block;
+    font-size: .83em;
+    margin-top: 1.67em;
+    margin-bottom: 1.67em;
+    margin-left: 0;
+    margin-right: 0;
+    font-size: 15px;
+    width: 600px;
+  }
+
+  .visit-article {
+    background-color: #4CAF50;
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    height:auto;
+    width: 200px;
+    margin-left: 30px;
+  }
+
+  .visit-article:hover:not(.active) {
+    background-color:black;
+  } 
+
+  .add{
+    background-color:#66ccff;
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    height:auto;
+    width: 200px;
+    margin-left: 100px;
+  }
+
+  .add:hover:not(.active) {
+    background-color:black;
+  } 
+
+  .article-list {
+      padding-top: 100px;
+  }
