@@ -112,7 +112,7 @@ a#visit:active {
     display: block;
     font-size: .83em;
     margin-top: 1.67em;
-    margin-bottom: 1.67em;
+    /* margin-bottom: 1.67em; */
     margin-left: 0;
     margin-right: 0;
     font-weight: bold;
@@ -120,6 +120,15 @@ a#visit:active {
     text-align: center;
   }
 
+  .author{
+    display: block;
+    font-size: .5em;
+    margin-bottom: 1.67em;
+    margin-left: 0;
+    margin-right: 0;
+    font-size: 15px;
+    text-align: center;
+  }
   .article-img{
       width: 600px;
       height: 400px;

@@ -17,28 +17,6 @@ export default class Homepage extends React.Component {
   }
 }
 
-// class PersonList extends React.Component {
-//     state = {
-//       persons: []
-//     }
-  
-//     componentDidMount() {
-//       axios.get(`https://jsonplaceholder.typicode.com/users`)
-//         .then(res => {
-//           const persons = res.data;
-//           this.setState({ persons });
-//         })
-//     }
-  
-//     render() {
-//       return (
-//         <ul>
-//           { this.state.persons.map(person => <li>{person.name}</li>)}
-//         </ul>
-//       )
-//     }
-//   }
-
 class NavBar extends Component {
   render() {
     return (
@@ -124,6 +102,8 @@ class BodyContent extends Component {
         title={data.title}
         img={data.img}
         context={data.context}
+        url={data.url}
+        author={data.author}
       />
     ));
     return (
@@ -140,13 +120,15 @@ class BodyComponent extends Component {
   }
 
   render() {
+    console.log(this.props.url)
     return (
       <div className="article-list">
         <div className="title">{this.props.title}</div>
+        <div className="author">{this.props.author}</div>
         <img className="article-img" src={this.props.img} />
         <div className="description">{this.props.context}</div>
-        <button className="visit-article">Visit Article</button>
-        <button className="add" style={{ marginTop: 10 }}>
+        <button className="visit-article" onClick={() => window.open(this.props.url)}>Visit Article</button>
+        <button className="add" onClick={() => window.open(this.props.url)} style={{ marginTop: 10 }}>
           Add To Blog
         </button>
       </div>
