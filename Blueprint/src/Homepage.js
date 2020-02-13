@@ -10,7 +10,6 @@ export default class Homepage extends React.Component {
         <NavBar />
         <Context />
         <BodyContent />
-        {/* <ApiTest /> */}
       </div>
     );
   }
@@ -93,11 +92,6 @@ class BodyComponent extends Component {
       id: article_id
     };
     axios.post(`https://ethic-blueprint.herokuapp.com/shopify/articles`,{json})
-      // .then(res => {
-      //   console.log(res);
-      //   console.log(res.data);
-      // })
-      // console.log(json);
   }
 
   render() {

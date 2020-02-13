@@ -42,14 +42,6 @@ li a:hover:not(.active) {
 }
 
 .banner-container {
-  /* background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("../src/picSrc/tomato.jpg");
-  height: 100%;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: auto,cover;
-  position: relative; */
-  /* height: auto;
-  padding: 100px 100px; */
   background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("../src/picSrc/tomato.jpg");
   background-size: 100% 100%;
   background-position: center;
@@ -112,7 +104,6 @@ a#visit:active {
   display: block;
   font-size: .83em;
   margin-top: 1.67em;
-  /* margin-bottom: 1.67em; */
   margin-left: 0;
   margin-right: 0;
   font-weight: bold;
