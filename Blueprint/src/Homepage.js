@@ -70,7 +70,7 @@ class BodyContent extends Component {
       title={d.title}
       img={d.image_url}
       content={d.content}
-      url={d.image_url}
+      url={d.url}
       author={d.author}
       publish_date={d.publish_date}
     />)})
@@ -106,7 +106,7 @@ class BodyComponent extends Component {
       <div className="article-list">
         <div className="title">{this.props.title}</div>
         <div className="author">{this.props.author}</div>
-        <img className="article-img" src={this.props.img} />
+        <img className="article-img" onClick={() => window.open(this.props.url)} src={this.props.img } />
         <div className="date">{this.props.publish_date}</div>
         <div className="description">{this.props.content}</div>
         <button className="visit-article" onClick={() => window.open(this.props.url)}>Visit Article</button>
