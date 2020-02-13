@@ -1,4 +1,12 @@
 import scrapy
+# import json
+# import requests 
+
+# API_ENDPOINT = 'http://ethic-blueprint.herokuapp.com/add_article'
+
+# header = {
+#     'Content-type' : 'application/json'
+# }
 
 months = {
     'January': 1,
@@ -42,3 +50,15 @@ class TreehuggereSpider(scrapy.Spider):
                 'content' : art.css('div.c-article__summary div.c-article__excerpt::text').get(),
                 'publish_date' : date_convert(art.css('div.c-article__byline span a::text')[-1].get()),
             }
+            # data = json.dumps({
+            #     'url' : 'https://www.treehugger.com' + art.css('div.c-article__image a::attr(href)').get(),
+            #     'title' : art.css('div.c-article__summary a::text').get().strip(),
+            #     'author' : art.css('div.c-article__summary div.c-article__byline a::text').get(),
+            #     'image_url' : art.css('div.c-article__image img::attr(src)').get(),
+            #     'content' : art.css('div.c-article__summary div.c-article__excerpt::text').get(),
+            #     'publish_date' : date_convert(art.css('div.c-article__byline span a::text')[-1].get()),
+            # })
+            # r = requests.post(url = API_ENDPOINT, headers = header, data = data) 
+   
+            # pastebin_url = r.text 
+            # print("The pastebin URL is:%s"%pastebin_url)
