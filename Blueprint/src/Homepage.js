@@ -39,7 +39,7 @@ class Context extends Component {
       <div className="banner-container">
         <div className="banner-content">
           <h1>Post Picker</h1>
-          <a href="#" id="visit">
+          <a href="https://www.ethicmarketplace.us/" target="_blank" id="visit">
             Visit
           </a>
         </div>
