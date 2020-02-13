@@ -11,7 +11,7 @@ export default class Homepage extends React.Component {
         <NavBar />
         <Context />
         <BodyContent />
-        <MyComponent />
+        <ApiTest />
       </div>
     );
   }
@@ -71,7 +71,7 @@ class Context extends Component {
   }
 }
 
-export class MyComponent extends Component {
+export class ApiTest extends Component {
     state = {
       error: null,
       isLoaded: false,
@@ -86,9 +86,6 @@ export class MyComponent extends Component {
             items: result.data
           });
         },
-        // Note: it's important to handle errors here
-        // instead of a catch() block so that we don't swallow
-        // exceptions from actual bugs in components.
         error => {
           this.setState({
             isLoaded: true,
