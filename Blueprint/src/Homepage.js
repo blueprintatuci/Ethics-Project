@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import bpData from "./bpData";
 import "./Homepage.css";
 
 import axios from 'axios';
@@ -11,7 +10,7 @@ export default class Homepage extends React.Component {
         <NavBar />
         <Context />
         <BodyContent />
-        <ApiTest />
+        {/* <ApiTest /> */}
       </div>
     );
   }
@@ -49,114 +48,38 @@ class Context extends Component {
   }
 }
 
-// export class ApiTest extends Component {
-//     state = {
-//       error: null,
-//       isLoaded: false,
-//       items: []
-//     };
-  
-//     componentDidMount() {
-//       axios.get("https://ethic-blueprint.herokuapp.com/").then(
-//         result => {
-//           this.setState({
-//             isLoaded: true,
-//             items: result.data
-//           });
-//         },
-//         error => {
-//           this.setState({
-//             isLoaded: true,
-//             error
-//           });
-//         }
-//         );
-//     }
-  
-//     render() {
-//       const { error, isLoaded, items } = this.state;
-//       if (error) {
-//         return <div>Error: {error.message}</div>;
-//       } else if (!isLoaded) {
-//         return <div>Loading...</div>;
-//       } else {
-//         return (
-//           <div className = "usernames">
-//             {/* {items.map(item => (
-//               <div key={item.username}>
-//                 {item.username}: {item.name}
-//               </div>
-//             ))} */}
-//             <div>{items}</div>
-//           </div>
-//         );
-//       }
-//     }
-// }
-
-// class BodyContent extends Component {
-//   state = {
-//     isLoaded: false,
-//     data: []
-//   };
-
-//   componentDidMount() {
-//     axios.get('http://ethic-blueprint.herokuapp.com/articles').then(
-//       result => {
-//         this.setState({
-//           data: result.data['articles']
-//         });
-//       },
-//       error => {
-//         this.setState({
-//           isLoaded: true,
-//           error
-//         });
-//       }
-//       );
-//   }
-  
-//   render() {
-    
-//     const bodyComponents = this.data.map(d => (
-//       <BodyComponent
-//         key = {d.id}
-//         title={d.title}
-//         img={d.image_url}
-//         content={d.content}
-//         url={d.url}
-//         author={d.author}
-//         publish_date={d.publish_date}
-//       />
-//     ));
-//     return (
-//         <div className="body-content">
-//             {bodyComponents}
-//         </div>
-//     );
-//   }
-// }
 
 class BodyContent extends Component {
-  
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      data: [""]
+    }
+  }
+
+  componentDidMount() {
+    axios.get('http://ethic-blueprint.herokuapp.com/articles')
+    .then (result => this.setState(() => ({data: result.data['articles']})))
+    .catch(error => console.log(error))
+  }
+
   render() {
     
-    // const bodyComponents = bpData.map(d => (
-    //   <BodyComponent
-    //     key = {d.id}
-    //     title={d.title}
-    //     img={d.image_url}
-    //     content={d.content}
-    //     url={d.url}
-    //     author={d.author}
-    //     publish_date={d.publish_date}
-    //   />
-    // ));
-    console.log("here")
-    const bodyComponents = bpData.map(d => console.log('---', d))
+    const bodyComponents = this.state.data.map((d, id) => {return(
+    <BodyComponent
+      key={id}
+      title={d.title}
+      img={d.image_url}
+      content={d.content}
+      url={d.image_url}
+      author={d.author}
+      publish_date={d.publish_date}
+    />)})
+
     return (
         <div className="body-content">
-            {/* {bodyComponents} */}
+            {bodyComponents}
         </div>
     );
   }
