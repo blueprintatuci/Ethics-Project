@@ -49,66 +49,114 @@ class Context extends Component {
   }
 }
 
-export class ApiTest extends Component {
-    state = {
-      error: null,
-      isLoaded: false,
-      items: []
-    };
+// export class ApiTest extends Component {
+//     state = {
+//       error: null,
+//       isLoaded: false,
+//       items: []
+//     };
   
-    componentDidMount() {
-      axios.get("https://ethic-blueprint.herokuapp.com/").then(
-        result => {
-          this.setState({
-            isLoaded: true,
-            items: result.data
-          });
-        },
-        error => {
-          this.setState({
-            isLoaded: true,
-            error
-          });
-        }
-        );
-    }
+//     componentDidMount() {
+//       axios.get("https://ethic-blueprint.herokuapp.com/").then(
+//         result => {
+//           this.setState({
+//             isLoaded: true,
+//             items: result.data
+//           });
+//         },
+//         error => {
+//           this.setState({
+//             isLoaded: true,
+//             error
+//           });
+//         }
+//         );
+//     }
   
-    render() {
-      const { error, isLoaded, items } = this.state;
-      if (error) {
-        return <div>Error: {error.message}</div>;
-      } else if (!isLoaded) {
-        return <div>Loading...</div>;
-      } else {
-        return (
-          <div className = "usernames">
-            {/* {items.map(item => (
-              <div key={item.username}>
-                {item.username}: {item.name}
-              </div>
-            ))} */}
-            <div>{items}</div>
-          </div>
-        );
-      }
-    }
-}
+//     render() {
+//       const { error, isLoaded, items } = this.state;
+//       if (error) {
+//         return <div>Error: {error.message}</div>;
+//       } else if (!isLoaded) {
+//         return <div>Loading...</div>;
+//       } else {
+//         return (
+//           <div className = "usernames">
+//             {/* {items.map(item => (
+//               <div key={item.username}>
+//                 {item.username}: {item.name}
+//               </div>
+//             ))} */}
+//             <div>{items}</div>
+//           </div>
+//         );
+//       }
+//     }
+// }
+
+// class BodyContent extends Component {
+//   state = {
+//     isLoaded: false,
+//     data: []
+//   };
+
+//   componentDidMount() {
+//     axios.get('http://ethic-blueprint.herokuapp.com/articles').then(
+//       result => {
+//         this.setState({
+//           data: result.data['articles']
+//         });
+//       },
+//       error => {
+//         this.setState({
+//           isLoaded: true,
+//           error
+//         });
+//       }
+//       );
+//   }
+  
+//   render() {
+    
+//     const bodyComponents = this.data.map(d => (
+//       <BodyComponent
+//         key = {d.id}
+//         title={d.title}
+//         img={d.image_url}
+//         content={d.content}
+//         url={d.url}
+//         author={d.author}
+//         publish_date={d.publish_date}
+//       />
+//     ));
+//     return (
+//         <div className="body-content">
+//             {bodyComponents}
+//         </div>
+//     );
+//   }
+// }
 
 class BodyContent extends Component {
+  
   render() {
-    const bodyComponents = bpData.map(data => (
-      <BodyComponent
-        key={data.id}
-        title={data.title}
-        img={data.img}
-        context={data.context}
-        url={data.url}
-        author={data.author}
-      />
-    ));
+    
+    // const bodyComponents = bpData.map(d => (
+    //   <BodyComponent
+    //     key = {d.id}
+    //     title={d.title}
+    //     img={d.image_url}
+    //     content={d.content}
+    //     url={d.url}
+    //     author={d.author}
+    //     publish_date={d.publish_date}
+    //   />
+    // ));
+    console.log("here")
+    const bodyComponents = bpData.map(d => console.log('---', d))
     return (
         <div className="body-content">
-            {bodyComponents}
+            {/* {bodyComponents} */}
         </div>
     );
   }
@@ -126,7 +174,7 @@ class BodyComponent extends Component {
         <div className="title">{this.props.title}</div>
         <div className="author">{this.props.author}</div>
         <img className="article-img" src={this.props.img} />
-        <div className="description">{this.props.context}</div>
+        <div className="description">{this.props.content}</div>
         <button className="visit-article" onClick={() => window.open(this.props.url)}>Visit Article</button>
         <button className="add" onClick={() => window.open(this.props.url)} style={{ marginTop: 10 }}>
           Add To Blog

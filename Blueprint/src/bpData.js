@@ -8,7 +8,7 @@ import axios from 'axios';
 
 // const axios = require('axios')
 
-const getAgnes = async () => {
+const getData = async () => {
   try {
     return await axios.get('http://ethic-blueprint.herokuapp.com/articles')
   } catch (error) {
@@ -16,40 +16,49 @@ const getAgnes = async () => {
   }
 }
 
-const countBreeds = async () => {
-  const breeds = await getAgnes()
+const blueprintData = async () => {
+  const info = await getData()
+    // console.log(info)
 
-  console.log(breeds.data['articles'])
+    console.log((info.data['articles']))
+
+    return info.data['articles']
+    
 }
 
-countBreeds()
+// displayData()
 
-const blueprintData = [
-    {
-        id: 0,
-        title: "15 Best Blogs To Follow About Web Design",
-        img: "https://media.treehugger.com/assets/images/2020/02/vinegar.jpg.859x0_q70_crop-center.jpg",
-        context: "Tenetur quidem quidem autem quaerat tempora cupiditate. Et consequatur eaque. Quidem et labore adipisci dolorum et eum expedita praesentium. Aliquid atque itaque accusantium maiores. Quasi architecto eum sequi dolores exercitationem incidunt molestiae. Quidem dolorem autem laborum vel voluptatem ut.",
-        url: "https://google.com",
-        author: "your mom"
-    },
-    {
-        id: 1,
-        title: "15 Best Blogs To Follow About Web Design",
-        img: pic2,
-        context: "Tenetur quidem quidem autem quaerat tempora cupiditate. Et consequatur eaque. Quidem et labore adipisci dolorum et eum expedita praesentium. Aliquid atque itaque accusantium maiores. Quasi architecto eum sequi dolores exercitationem incidunt molestiae. Quidem dolorem autem laborum vel voluptatem ut.",
-        url: "https://google.com",
-        author: "your mom"
-    },
-    {
-        id: 2,
-        title: "15 Best Blogs To Follow About Web Design",
-        img: pic3,
-        context: "Tenetur quidem quidem autem quaerat tempora cupiditate. Et consequatur eaque. Quidem et labore adipisci dolorum et eum expedita praesentium. Aliquid atque itaque accusantium maiores. Quasi architecto eum sequi dolores exercitationem incidunt molestiae. Quidem dolorem autem laborum vel voluptatem ut.",
-        url: "https://google.com",
-        author: "your mom"
-    },
-]
+// // const blueprintData = displayData()
+
+// const blueprintData = [
+//     {
+//         id: 0,
+//         title: "15 Best Blogs To Follow About Web Design",
+//         image_url: "https://media.treehugger.com/assets/images/2020/02/vinegar.jpg.859x0_q70_crop-center.jpg",
+//         content: "Tenetur quidem quidem autem quaerat tempora cupiditate. Et consequatur eaque. Quidem et labore adipisci dolorum et eum expedita praesentium. Aliquid atque itaque accusantium maiores. Quasi architecto eum sequi dolores exercitationem incidunt molestiae. Quidem dolorem autem laborum vel voluptatem ut.",
+//         url: "https://google.com",
+//         author: "your mom",
+//         publish_date: "1/21/20"
+//     },
+//     {
+//         id: 1,
+//         title: "15 Best Blogs To Follow About Web Design",
+//         image_url: pic2,
+//         content: "Tenetur quidem quidem autem quaerat tempora cupiditate. Et consequatur eaque. Quidem et labore adipisci dolorum et eum expedita praesentium. Aliquid atque itaque accusantium maiores. Quasi architecto eum sequi dolores exercitationem incidunt molestiae. Quidem dolorem autem laborum vel voluptatem ut.",
+//         url: "https://google.com",
+//         author: "your mom",
+//         publish_date: "1/21/20"
+//     },
+//     {
+//         id: 2,
+//         title: "15 Best Blogs To Follow About Web Design",
+//         image_url: pic3,
+//         content: "Tenetur quidem quidem autem quaerat tempora cupiditate. Et consequatur eaque. Quidem et labore adipisci dolorum et eum expedita praesentium. Aliquid atque itaque accusantium maiores. Quasi architecto eum sequi dolores exercitationem incidunt molestiae. Quidem dolorem autem laborum vel voluptatem ut.",
+//         url: "https://google.com",
+//         author: "your mom",
+//         publish_date: "1/21/20"
+//     },
+// ]
 
 export default blueprintData
 
