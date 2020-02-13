@@ -25,9 +25,6 @@ class NavBar extends Component {
             Home
           </a>
         </li>
-        <li>
-          <a href="#about">About</a>
-        </li>
       </ul>
     );
   }
@@ -110,7 +107,8 @@ class BodyComponent extends Component {
         <div className="title">{this.props.title}</div>
         <div className="author">{this.props.author}</div>
         <img className="article-img" src={this.props.img} />
-        <div className="description">{this.props.context}</div>
+        <div className="date">{this.props.publish_date}</div>
+        <div className="description">{this.props.content}</div>
         <button className="visit-article" onClick={() => window.open(this.props.url)}>Visit Article</button>
         <button className="add" onClick={() => this.postArticle(this.props.id)} style={{ marginTop: 10 }}>
           Add To Blog
