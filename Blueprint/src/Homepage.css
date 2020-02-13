@@ -132,6 +132,10 @@ a#visit:active {
   .article-img{
       width: 600px;
       height: 400px;
+      display: block;
+      margin-left: auto;
+      margin-right: auto;
+    
   }
 
   .description{
@@ -139,10 +143,10 @@ a#visit:active {
     font-size: .83em;
     margin-top: 1.67em;
     margin-bottom: 1.67em;
-    margin-left: 0;
     margin-right: 0;
     font-size: 15px;
     width: 600px;
+    margin-left: 50px;
   }
 
   .visit-article {
@@ -158,7 +162,7 @@ a#visit:active {
     cursor: pointer;
     height:auto;
     width: 200px;
-    margin-left: 30px;
+    margin-left: 90px;
   }
 
   .visit-article:hover:not(.active) {
@@ -187,4 +191,5 @@ a#visit:active {
 
   .article-list {
       padding-top: 100px;
+      
   }
