@@ -69,6 +69,7 @@ class BodyContent extends Component {
     const bodyComponents = this.state.data.map((d, id) => {return(
     <BodyComponent
       key={id}
+      id={d.id}
       title={d.title}
       img={d.image_url}
       content={d.content}
@@ -90,6 +91,18 @@ class BodyComponent extends Component {
     super(props);
   }
 
+  postArticle(article_id) {
+    const json = {
+      id: article_id
+    };
+    axios.post(`https://ethic-blueprint.herokuapp.com/shopify/articles`,{json})
+      // .then(res => {
+      //   console.log(res);
+      //   console.log(res.data);
+      // })
+      // console.log(json);
+  }
+
   render() {
     console.log(this.props.url)
     return (
@@ -97,13 +110,12 @@ class BodyComponent extends Component {
         <div className="title">{this.props.title}</div>
         <div className="author">{this.props.author}</div>
         <img className="article-img" src={this.props.img} />
-        <div className="description">{this.props.content}</div>
+        <div className="description">{this.props.context}</div>
         <button className="visit-article" onClick={() => window.open(this.props.url)}>Visit Article</button>
-        <button className="add" onClick={() => window.open(this.props.url)} style={{ marginTop: 10 }}>
+        <button className="add" onClick={() => this.postArticle(this.props.id)} style={{ marginTop: 10 }}>
           Add To Blog
         </button>
       </div>
     );
   }
 }
-
