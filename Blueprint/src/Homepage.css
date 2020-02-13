@@ -129,6 +129,16 @@ a#visit:active {
     font-size: 15px;
     text-align: center;
   }
+
+  .date{
+    display: block;
+    font-size: .1em;
+    margin-bottom: 1.67em;
+    margin-left: 0;
+    margin-right: 0;
+    font-size: 15px;
+    text-align: center;
+  }
   .article-img{
       width: 600px;
       height: 400px;
@@ -147,6 +157,7 @@ a#visit:active {
     font-size: 15px;
     width: 600px;
     margin-left: 50px;
+    font-style: italic;
   }
 
   .visit-article {
