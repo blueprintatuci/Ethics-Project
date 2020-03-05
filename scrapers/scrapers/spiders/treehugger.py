@@ -45,6 +45,7 @@ class TreehuggerSpider(scrapy.Spider):
                 'image_url' : art.css('div.c-article__image img::attr(src)').get(),
                 'content' : art.css('div.c-article__summary div.c-article__excerpt::text').get(),
                 'publish_date' : date_convert(art.css('div.c-article__byline span a::text')[-1].get()),
+                'source': "treehugger",
             })
             output.write(data + '\n')
             output.close()

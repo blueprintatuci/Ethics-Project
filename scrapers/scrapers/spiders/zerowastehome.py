@@ -31,8 +31,8 @@ class ZeroWasteHomeSpider(scrapy.Spider):
         output.close()
         urls = [
             'https://zerowastehome.com/blog/',
-            # 'https://zerowastehome.com/blog/page/2/',
-            # 'https://zerowastehome.com/blog/page/3/',
+            'https://zerowastehome.com/blog/page/2/',
+            'https://zerowastehome.com/blog/page/3/',
         ]
         for url in urls:
             yield scrapy.Request(url=url, callback=self.parse)
@@ -46,7 +46,8 @@ class ZeroWasteHomeSpider(scrapy.Spider):
                 'author' : art.css("div.text a::text").get(),
                 'image_url' : art.css('div.post-featured-img-wrap span.post-featured-img::attr(style)').re(r'http.*jpg')[0],
                 'content' : art.css("div.excerpt::text").get(),
-                'publish_date' : date_convert(art.css("div.text span::text").get()),
+                'publish_date' : date_convert(art.css("div.text span::text").get())
+                'source': "zerowastehome",
             })
             output.write(data + '\n')
             output.close()
