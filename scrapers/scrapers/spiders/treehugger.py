@@ -25,9 +25,10 @@ def date_convert(string):
 
 class TreehuggerSpider(scrapy.Spider):
     name = "treehugger"
+    fileName = name + '.json'
 
     def start_requests(self):
-        output = open("treehugger.json", 'w')
+        output = open(fileName, 'w')
         output.close()
         urls = [
             'https://www.treehugger.com/',
@@ -37,15 +38,14 @@ class TreehuggerSpider(scrapy.Spider):
     
     def parse(self, response):
         for art in response.css("article"): 
-            output = open("treehugger.json", 'a')
+            output = open(fileName, 'a')
             data = json.dumps({
                 'url' : 'https://www.treehugger.com' + art.css('div.c-article__image a::attr(href)').get(),
                 'title' : art.css('div.c-article__summary a::text').get().strip(),
                 'author' : art.css('div.c-article__summary div.c-article__byline a::text').get(),
                 'image_url' : art.css('div.c-article__image img::attr(src)').get(),
-                'content' : art.css('div.c-article__summary div.c-article__excerpt::text').get(),
                 'publish_date' : date_convert(art.css('div.c-article__byline span a::text')[-1].get()),
-                'source': "treehugger",
+                'source': name,
             })
             output.write(data + '\n')
             output.close()
