@@ -13,6 +13,8 @@ runner = CrawlerRunner()
 def crawl():
     yield runner.crawl(TreehuggerSpider)
     yield runner.crawl(ZeroWasteHomeSpider)
+    # add new spiders  here
+
     reactor.stop()
 
 crawl()
@@ -27,6 +29,7 @@ header = {
 # SEND SCRAPER TO BACKEND
 treehugger = open("treehugger.json", 'r')
 zerowastehome = open("zerowastehome.json", 'r')
+## add new jsons from new scrapers here
 
 for article in treehugger.readlines():
     r = requests.post(url = API_ENDPOINT, headers = header, data = article) 
@@ -40,3 +43,4 @@ for article in zerowastehome.readlines():
     pastebin_url = r.text 
     print("The pastebin URL is:%s"%pastebin_url) 
 
+## add new loops here to send to endpoint
