@@ -28,7 +28,7 @@ class ZeroWasteHomeSpider(scrapy.Spider):
     fileName = name + ".json"
 
     def start_requests(self):
-        output = open(fileName, 'w')
+        output = open(self.fileName, 'w')
         output.close()
         urls = [
             'https://zerowastehome.com/blog/',
@@ -38,14 +38,14 @@ class ZeroWasteHomeSpider(scrapy.Spider):
 
     def parse(self, response):
         for art in response.css("div.post-content"): 
-            output = open(fileName, 'a')
+            output = open(self.fileName, 'a')
             data = json.dumps({
                 'url' : art.css("a.entire-meta-link::attr(href)").get(),
                 'title' : art.css("div.post-header a::text").get().strip(),
                 'author' : art.css("div.text a::text").get(),
                 'image_url' : art.css('div.post-featured-img-wrap span.post-featured-img::attr(style)').re(r'http.*jpg')[0],
-                'publish_date' : date_convert(art.css("div.text span::text").get())
-                'source': name,
+                'publish_date' : date_convert(art.css("div.text span::text").get()),
+                'source': self.name,
             })
             output.write(data + '\n')
             output.close()

@@ -28,7 +28,7 @@ class TemplateSpider(scrapy.Spider):    #change 'Template' to match website name
     fileName = name + ".json"
 
     def start_requests(self):
-        output = open(fileName, 'w')
+        output = open(self.fileName, 'w')
         output.close()
         urls = [    #change url
             'https://www.example.com/',   
@@ -38,14 +38,14 @@ class TemplateSpider(scrapy.Spider):    #change 'Template' to match website name
     
     def parse(self, response):
         for art in response.css("article"): 
-            output = open(fileName, 'a')
+            output = open(self.fileName, 'a')
             data = json.dumps({
                 'url' : "urlQuery",
                 'title' : "titleQuery",
                 'author' : "authorQuery",
                 'image_url' : "image_urlQuery",
                 'publish_date' : "publish_dateQuery",
-                'source': name,
+                'source': self.name,
             })
             output.write(data + '\n')
             output.close()

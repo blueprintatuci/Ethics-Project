@@ -28,7 +28,7 @@ class TreehuggerSpider(scrapy.Spider):
     fileName = name + '.json'
 
     def start_requests(self):
-        output = open(fileName, 'w')
+        output = open(self.fileName, 'w')
         output.close()
         urls = [
             'https://www.treehugger.com/',
@@ -38,14 +38,14 @@ class TreehuggerSpider(scrapy.Spider):
     
     def parse(self, response):
         for art in response.css("article"): 
-            output = open(fileName, 'a')
+            output = open(self.fileName, 'a')
             data = json.dumps({
                 'url' : 'https://www.treehugger.com' + art.css('div.c-article__image a::attr(href)').get(),
                 'title' : art.css('div.c-article__summary a::text').get().strip(),
                 'author' : art.css('div.c-article__summary div.c-article__byline a::text').get(),
                 'image_url' : art.css('div.c-article__image img::attr(src)').get(),
                 'publish_date' : date_convert(art.css('div.c-article__byline span a::text')[-1].get()),
-                'source': name,
+                'source': self.name,
             })
             output.write(data + '\n')
             output.close()
