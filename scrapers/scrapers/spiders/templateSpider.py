@@ -23,15 +23,15 @@ def date_convert(string):
     year = date[2]
     return "{}/{}/{}".format(mon, day, year)
 
-class TreehuggerSpider(scrapy.Spider):
-    name = "treehugger"
-    fileName = name + '.json'
+class TemplateSpider(scrapy.Spider):    #change 'Template' to match website name
+    name = "template"   #change name
+    fileName = name + ".json"
 
     def start_requests(self):
         output = open(self.fileName, 'w')
         output.close()
-        urls = [
-            'https://www.treehugger.com/',
+        urls = [    #change url
+            'https://www.example.com/',   
         ]
         for url in urls:
             yield scrapy.Request(url=url, callback=self.parse)
@@ -40,11 +40,11 @@ class TreehuggerSpider(scrapy.Spider):
         for art in response.css("article"): 
             output = open(self.fileName, 'a')
             data = json.dumps({
-                'url' : 'https://www.treehugger.com' + art.css('div.c-article__image a::attr(href)').get(),
-                'title' : art.css('div.c-article__summary a::text').get().strip(),
-                'author' : art.css('div.c-article__summary div.c-article__byline a::text').get(),
-                'image_url' : art.css('div.c-article__image img::attr(src)').get(),
-                'publish_date' : date_convert(art.css('div.c-article__byline span a::text')[-1].get()),
+                'url' : "urlQuery",
+                'title' : "titleQuery",
+                'author' : "authorQuery",
+                'image_url' : "image_urlQuery",
+                'publish_date' : "publish_dateQuery",
                 'source': self.name,
             })
             output.write(data + '\n')
